@@ -1,8 +1,32 @@
 from typing import List
 
 def merge_sort(data) -> None:
-  Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
-  # Write code here
+  if len(data)>1:
+        mid = len(data)//2
+        lefthalf = data[:mid]
+        righthalf = data[mid:]
+
+        merge_sort(lefthalf)
+        merge_sort(righthalf)
+        i=j=k=0       
+        while i < len(lefthalf) and j < len(righthalf):
+            if lefthalf[i] < righthalf[j]:
+                data[k]=lefthalf[i]
+                i=i+1
+            else:
+                data[k]=righthalf[j]
+                j=j+1
+            k=k+1
+
+        while i < len(lefthalf):
+            data[k]=lefthalf[i]
+            i=i+1
+            k=k+1
+
+        while j < len(righthalf):
+            data[k]=righthalf[j]
+            j=j+1
+            k=k+1
 
 
 # Do not change the following code
